@@ -10,11 +10,11 @@
 # Месяцы и дни можно игнорировать.
 
 print("Task 7.")
-american_format = input("Enter in american format: (example:05.17.2016)")
+american_format = input("Enter date in american format: (example:05.17.2016)")
 month = str(american_format[0:2])
 day = str(american_format[3:5])
 year = str(american_format[6:])
-print("European format: %s.%s.%s" % (day, month, year))
+print("Date in european format: %s.%s.%s" % (day, month, year))
 
 print("\nTask 8.")
 

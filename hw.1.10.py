@@ -8,7 +8,7 @@
 # Например, для строки 'Leo Tolstoy*1828-08-28*1910-11-20' программа должна вернуть: 'Leo Tolstoy, 82'.
 # Для строки 'Marcus Aurelius*121-04-26*180-03-17' вернуть 'Marcus Aurelius, 59'. Т.е. индексы символов разделителей ('*', '-') незафиксированы!
 # Месяцы и дни можно игнорировать.
-
+# 
 print("Task 7.")
 american_format = input("Enter date in american format: (example:05.17.2016)")
 month = str(american_format[0:2])

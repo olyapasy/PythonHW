@@ -11,9 +11,9 @@
 
 print("Task 7.")
 american_format = input("Enter date in american format: (example:05.17.2016)")
-month = (american_format[0:2])
-day = (american_format[3:5])
-year = (american_format[6:])
+month = american_format[0:2]
+day = american_format[3:5]
+year = american_format[6:]
 print("Date in european format: %s.%s.%s" % (day, month, year))
 
 print("\nTask 8.")
@@ -27,10 +27,10 @@ print("%s  -> %s %s" % (student_name, surname, name))
 
 print("\nTask 9.")
 snake_style = input("Enter the name of variable in the snake_style: (example: snake_style_variable)")
-split = (snake_style.split('_'))
-first_part = (split[0])
-second_part = (split[1]).capitalize()
-third_part = (split[2]).capitalize()
+split = snake_style.split('_')
+first_part = split[0]
+second_part = split[1].capitalize()
+third_part = split[2].capitalize()
 camel_style = first_part+second_part+third_part
 print("Transformation complete:")
 print("%s -> %s" % (snake_style, camel_style))

@@ -15,7 +15,8 @@ def is_even(value):
 value = int(input("Enter the value:"))
 print(is_even(value))
 
-if (is_even(value)) == 1:
+
+if is_even(value):
     print('Your value %d is even' % value)
 else:
     print('Your value %d is not even' % value)
@@ -26,7 +27,7 @@ print('\nTask 2.')
 
 def is_intersect(x1, y1, radius1, x2, y2, radius2):
     distance_between_centers = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)
-    return distance_between_centers <= radius1 + radius2
+    return radius1 + radius2 < distance_between_centers or distance_between_centers >= abs(radius1 - radius2)
 
 
 x1 = int(input("Enter coordinate x for the first center:"))
@@ -49,9 +50,9 @@ print('\nTask 3.')
 
 
 def is_crash(speed1, speed2):
-    time1 = 4 / speed1
-    time2 = 6 / speed2
-    return time1 > time2
+  time1 = 4 / speed1
+  time2 = 6 / speed2
+  return time1 >= time2
 
 
 speed1 = int(input("Enter speed of the first train"))

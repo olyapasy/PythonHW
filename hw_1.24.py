@@ -89,13 +89,13 @@ print("\nTask 24")
 def chess_reward():
     result = 1
     cage = 0
-    flag = True
+    million_achieved = False
     for i in range(64):
-        if flag:
+        if not million_achieved:
             result = result*2
             if result > 1000000:
                 cage = i + 1
-                flag = False
+                million_achieved = True
     result = result - 1
     return cage, result
 

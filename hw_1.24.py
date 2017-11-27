@@ -96,6 +96,7 @@ def chess_reward():
             if result > 1000000:
                 cage = i + 1
                 million_achieved = True
+                break
     result = result - 1
     return cage, result
 

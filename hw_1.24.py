@@ -91,10 +91,10 @@ def chess_reward():
     cage = 0
     flag = True
     for i in range(64):
-        result = result*2
         if flag:
-            if result > 10000000:
-                cage = i
+            result = result*2
+            if result > 1000000:
+                cage = i + 1
                 flag = False
     result = result - 1
     return cage, result

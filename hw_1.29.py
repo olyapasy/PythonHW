@@ -116,6 +116,27 @@ shuffle_text(text)
 print("Task 1.28")
 
 
+def encode(str): # returns enсoded string
+
+    str = list(str)
+    for letter in range(len(str)):
+        symbol = ord(str[letter])
+        if symbol == 32:
+            pass
+        else:
+            symbol = chr(symbol + 5)
+            str.pop(letter)
+            str.insert(letter, symbol)
+    encoded = "".join(str)
+
+
+    return encoded
+
+
+to_code = input("Please. enter the text for encode:")
+print("Your encoded text :%s" % encode(to_code))
+
+
 print("Task 1.29")
 
 

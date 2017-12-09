@@ -39,14 +39,14 @@ def solve_equations(a, b, c):
         return res_first, None, res_third
 
 
-# a = int(input("Enter the value for a: "))
-# b = int(input("Enter the value for b: "))
-# c = int(input("Enter the value for c: "))
-#
-# s1, s2, s3 = solve_equations(a,b, c)
-# print("Answer for the first equation (a + b * c)^2  is %s\n"
-#       "Answer for the second equation a - 4 * b / c is %s\n"
-#       "Answer for the third equation (a * b + 4) / (c - 1) is %s\n" % (s1, s2, s3))
+a = int(input("Enter the value for a: "))
+b = int(input("Enter the value for b: "))
+c = int(input("Enter the value for c: "))
+
+s1, s2, s3 = solve_equations(a,b, c)
+print("Answer for the first equation (a + b * c)^2  is %s\n"
+      "Answer for the second equation a - 4 * b / c is %s\n"
+      "Answer for the third equation (a * b + 4) / (c - 1) is %s\n" % (s1, s2, s3))
 
 
 print("Task 4.")
@@ -60,15 +60,14 @@ def ood_sum(number):
     return sum_of_odds
 
 
-# number = input("Enter your number :")
-# print("Sum of odd numbers in your number is %d" % ood_sum(number))
+number = input("Enter your number :")
+print("Sum of odd numbers in your number is %d" % ood_sum(number))
 
 
 
 print("Task 4.")
 
 
-# Создать программу, выводящую на экран ближайшее к 10 из двух чисел, введенных пользователем. Например, среди чисел 8,5 и 11,45 ближайшее к десяти 11,45.
 
 
 def find_min_dist_to_10(number1, number2):
@@ -81,9 +80,9 @@ def find_min_dist_to_10(number1, number2):
 
 
 #
-# number1 = int(input("Enter the first number: "))
-# number2 = int(input("Enter the second number: "))
-# print("Number %d is closer to 10" % find_min_dist_to_10(number1, number2))
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+print("Number %d is closer to 10" % find_min_dist_to_10(number1, number2))
 
 print("Task 5.")
 
@@ -104,6 +103,5 @@ def is_isogram(str):
     return count == 0
 
 
-# string = input("Enter your text")
-# print("The fact that your string: %s is isogram is %s " % (string, is_isogram(string)))
-# 7. Найти сумму десяти первых чисел ряда Фибоначчи.
+string = input("Enter your text")
+print("The fact that your string: %s is isogram is %s " % (string, is_isogram(string)))

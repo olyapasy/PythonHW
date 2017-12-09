@@ -34,56 +34,60 @@ import string
 
 
 print("Task 1.25")
-lst = []
-for i in range(100):
-    if i % 2 != 0:
-        lst.insert(i, i)
+lst = [i for i in range(1, 100, 2)]
 print(lst)
 
 
+# def shuffle_list(list_to_shuffle):  # no return (shuffles list in place)
+#     empty_list = []
+#     while len(list_to_shuffle) != 0:
+#         elem_of_list = random.choice(list_to_shuffle)
+#         empty_list.append(elem_of_list)
+#         list_to_shuffle.remove(elem_of_list)
+#     print(empty_list)
+
 def shuffle_list(list_to_shuffle):  # no return (shuffles list in place)
-    empty_list = []
-    while len(list_to_shuffle) != 0:
-        elem_of_list = random.choice(list_to_shuffle)
-        empty_list.append(elem_of_list)
-        list_to_shuffle.remove(elem_of_list)
-    print(empty_list)
+    for i in list_to_shuffle:
+        elem = random.choice(list_to_shuffle)
+        list_to_shuffle.remove(elem)
+        list_to_shuffle.append(elem)
+
+    print(list_to_shuffle)
 
 
 shuffle_list(lst)
 
+
 print("Task 1.26")
 
-lst1 = []
-for i in range(11):
-    i = random.randint(-1, 1)
-    lst1.insert(i, i)
-print(lst1)
 
-
-def calc_frequency(lst):  # returns the most frequent number or None
+def calc_frequency(lst):
+    lst = list(lst)
     first_group = []
     second_group = []
     third_group = []
-    for elem in lst:
-        if elem == -1:
-            first_group.insert(elem, elem)
-        elif elem == 0:
-            second_group.insert(elem, elem)
+    for elem in range(len(lst)):
+        if lst[elem] == -1:
+            first_group.append(lst[elem])
+        elif lst[elem] == 0:
+            second_group.append(lst[elem])
         else:
-            third_group.insert(elem, elem)
+            third_group.append(lst[elem])
     a = len(first_group)
     b = len(second_group)
     c = len(third_group)
-    if a > b > c:
-        return a
-    elif b > a > c:
-        return b
-    elif c > a > b:
-        return c
-    else:
+    if (a == b and a != 0) or (b == c and b != 0) or (c == a and c != 0):
         return None
+    elif a > b and a > c:
+        return first_group[0]
+    elif b > a and b > c:
+        return second_group[0]
+    elif c > a and c > b:
+        return third_group[0]
 
+
+lst1 = [random.randint(-1, 1) for i in range(11)]
+print(lst1)
 
 print(calc_frequency(lst1))
 
@@ -94,18 +98,14 @@ text = 'Some text for this shuffle'
 
 
 def shuffle_text(text):
-    word_list = text.split(" ")
+    word_list = text.split()
     new_text = ''
     for words in word_list:
-        shuffle = ''
-        shuffle = shuffle + " ".join(words_part[1:-1] for words_part in words.split())
-        shuffle = list(shuffle)
-        shuffle_part = ''
-        while len(shuffle) != 0:
-             new_letter = random.choice(shuffle)
-             shuffle_part = shuffle_part + new_letter
-             shuffle.remove(new_letter)
-        new_word = ''.join(words[0] + shuffle_part + words[-1:])
+        middle = words[1:-1]
+        middle = list(middle)
+        random.shuffle(middle)
+        middle_part = ''.join(middle)
+        new_word = ''.join(words[0] + middle_part + words[-1])
         new_text = new_text + new_word + ' '
 
     return print(new_text)
@@ -114,7 +114,6 @@ def shuffle_text(text):
 shuffle_text(text)
 
 print("Task 1.28")
-
 
 def encode(str): # returns enсoded string
 
@@ -141,10 +140,14 @@ print("Task 1.29")
 
 
 def gen_password():  # returns string
+
     password = ''
-    while len(password) != 8:
-        password = password + ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase) for x in range(1))
-        password = password + ''.join(random.choice(string.digits) for x in range(1))
+    for i in range(5):
+        password = password + ''.join(random.choice(string.ascii_lowercase + random.choice(string.ascii_uppercase + random.choice(string.digits ))))
+    password = password + ''.join(random.choice(string.ascii_lowercase))
+    password = password + ''.join((random.choice(string.ascii_uppercase)))
+    password = password + ''.join((random.choice(string.digits)))
+
     return password
 
 

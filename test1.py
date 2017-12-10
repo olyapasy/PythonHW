@@ -43,31 +43,27 @@ a = int(input("Enter the value for a: "))
 b = int(input("Enter the value for b: "))
 c = int(input("Enter the value for c: "))
 
-s1, s2, s3 = solve_equations(a,b, c)
+s1, s2, s3 = solve_equations(a, b, c)
 print("Answer for the first equation (a + b * c)^2  is %s\n"
       "Answer for the second equation a - 4 * b / c is %s\n"
       "Answer for the third equation (a * b + 4) / (c - 1) is %s\n" % (s1, s2, s3))
 
-
 print("Task 4.")
 
 
-def ood_sum(number):
-    sum_of_odds = 0
+def ood_multiply(number):
+    multiply_of_odds = 1
     for i in range(len(number)):
         if int(number[i]) % 2 != 0:
-            sum_of_odds += int(number[i])
-    return sum_of_odds
+            multiply_of_odds *= int(number[i])
+
+    return multiply_of_odds
 
 
 number = input("Enter your number :")
-print("Sum of odd numbers in your number is %d" % ood_sum(number))
+print("Sum of odd numbers in your number is %d" % ood_multiply(number))
 
-
-
-print("Task 4.")
-
-
+print("Task 5.")
 
 
 def find_min_dist_to_10(number1, number2):
@@ -91,14 +87,10 @@ def is_isogram(str):
     count = 0
     letters = ""
     for i in str:
-        for j in range(len(letters)):
-            if i != letters[j]:
-                pass
-            else:
-                if i == ' ':
-                    pass
-                else:
-                    count+=1
+        if count > 0:
+            return False
+        if i in letters and i != ' ':
+            count += 1
         letters += i
     return count == 0
 

@@ -115,21 +115,24 @@ shuffle_text(text)
 
 print("Task 1.28")
 
-def encode(str): # returns enсoded string
-
+def encode(str):
+    table_encode = ''.join(string.ascii_lowercase + string.digits)
+    table_encode = list(table_encode)
     str = list(str)
+    new_list = ''
     for letter in range(len(str)):
-        symbol = ord(str[letter])
-        if symbol == 32:
-            pass
-        else:
-            symbol = chr(symbol + 5)
-            str.pop(letter)
-            str.insert(letter, symbol)
-    encoded = "".join(str)
+        for symbol in range(len(table_encode)):
+            if str[letter] == table_encode[symbol]:
+                if symbol + 5 >= len(table_encode) - 1:
+                    res = len(table_encode) - symbol + 5
+                    symbol = 5 - res
+                paste = table_encode[symbol + 5]
+                del str[letter]
+                str.insert(letter, paste)
+                new_list = "".join(str)
+                break
 
-
-    return encoded
+    return new_list
 
 
 to_code = input("Please. enter the text for encode:")

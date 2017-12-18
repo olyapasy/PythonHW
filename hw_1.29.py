@@ -97,6 +97,7 @@ print("Task 1.27")
 text = 'Some text for this shuffle'
 
 
+
 def shuffle_text(text):
     word_list = text.split()
     new_text = ''
@@ -116,19 +117,15 @@ shuffle_text(text)
 print("Task 1.28")
 
 def encode(str):
-    table_encode = ''.join(string.ascii_lowercase + string.digits)
+    table_encode = string.ascii_lowercase + string.digits
     table_encode = list(table_encode)
     str = list(str)
     new_list = ''
     for letter in range(len(str)):
-        for symbol in range(len(table_encode)):
-            if str[letter] == table_encode[symbol]:
-                if symbol + 5 >= len(table_encode) - 1:
-                    res = len(table_encode) - symbol + 5
-                    symbol = 5 - res
-                paste = table_encode[symbol + 5]
-                del str[letter]
-                str.insert(letter, paste)
+        for j in range(len(table_encode)):
+            if str[letter] == table_encode[j]:
+                paste = table_encode[(j + 5) % len(table_encode)]
+                str[letter] = paste
                 new_list = "".join(str)
                 break
 
@@ -146,10 +143,10 @@ def gen_password():  # returns string
 
     password = ''
     for i in range(5):
-        password = password + ''.join(random.choice(string.ascii_lowercase + random.choice(string.ascii_uppercase + random.choice(string.digits ))))
-    password = password + ''.join(random.choice(string.ascii_lowercase))
-    password = password + ''.join((random.choice(string.ascii_uppercase)))
-    password = password + ''.join((random.choice(string.digits)))
+        password = password + random.choice(string.ascii_lowercase + random.choice(string.ascii_uppercase + random.choice(string.digits )))
+    password = password + random.choice(string.ascii_lowercase)
+    password = password + random.choice(string.ascii_uppercase)
+    password = password + random.choice(string.digits)
 
     return password
 

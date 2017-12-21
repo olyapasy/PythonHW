@@ -103,7 +103,7 @@ print("The fact that your string: %s is isogram is %s " % (string, is_isogram(st
 print("Task 7.")
 
 
-def sum_fibb_nummers(n):
+def sum_fibb_numbers(n):
     result = 0
     for i in range(n + 1):
         result += fib(i)
@@ -119,7 +119,7 @@ def fib(n):
         return fib(n - 1) + fib(n - 2)
 
 
-print(sum_fibb_nummers(10))
+print(sum_fibb_numbers(10))
 
 print("Task 8.")
 
@@ -143,4 +143,21 @@ print(change_min_max(some_list))
 
 print("Task 9.")
 
+lst = [-5,2,4]
 
+def normalize(lst):
+    lst = list(lst)
+    mod_min_elem = abs(min(lst))
+    max_elem = max(lst)
+    if mod_min_elem > max_elem:
+        res = mod_min_elem
+    elif max_elem <mod_min_elem:
+        res = max_elem
+    else:
+        res = mod_min_elem
+    for i in range(len(lst)):
+        lst[i] = lst[i] / res
+    return lst
+
+
+print(normalize(lst))

@@ -80,7 +80,7 @@ number1 = int(input("Enter the first number: "))
 number2 = int(input("Enter the second number: "))
 print("Number %d is closer to 10" % find_min_dist_to_10(number1, number2))
 
-print("Task 5.")
+print("Task 6.")
 
 
 def is_isogram(str):
@@ -97,3 +97,50 @@ def is_isogram(str):
 
 string = input("Enter your text")
 print("The fact that your string: %s is isogram is %s " % (string, is_isogram(string)))
+
+# 7. Найти сумму десяти первых чисел ряда Фибоначчи.
+
+print("Task 7.")
+
+
+def sum_fibb_nummers(n):
+    result = 0
+    for i in range(n + 1):
+        result += fib(i)
+    return result
+
+
+def fib(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+
+
+print(sum_fibb_nummers(10))
+
+print("Task 8.")
+
+some_list = [0, 1, 2, 3,90,100,-1]
+
+
+def change_min_max(lst):
+    lst = list(lst)
+    min_elem = min(lst)
+    max_elem = max(lst)
+    min_elem_index = lst.index(min_elem)
+    max_elem_index = lst.index(max_elem)
+    for i in range(len(lst)):
+        lst[min_elem_index] = max_elem
+        lst[max_elem_index] = min_elem
+    return lst
+
+
+print(change_min_max(some_list))
+
+
+print("Task 9.")
+
+

@@ -144,14 +144,7 @@ lst = [-5,4,3]
 
 def normalize(lst):
     lst = list(lst)
-    mod_min_elem = abs(min(lst))
-    max_elem = max(lst)
-    if mod_min_elem > max_elem:
-        res = mod_min_elem
-    elif max_elem < mod_min_elem:
-        res = max_elem
-    else:
-        res = max(lst, key=abs)
+    res = max(lst, key=abs)
     for i in range(len(lst)):
         lst[i] = lst[i] / res
     return lst
@@ -160,3 +153,49 @@ def normalize(lst):
 print(normalize(lst))
 
 print("Task 10.")
+
+lst = [[3,  8,  1],
+       [5,  9,  6],
+       [2,  6,  7]]
+
+def find_saddle_points(lst):
+    empty =[]
+    min_row_elems = []
+    max_column_elems = []
+    saddle_points_list = []
+    lst = list(lst)
+    for i in range(len(lst)):
+        min_row = min(lst[i])
+        min_row_elems.append(min_row)
+        for j in range(len(lst)):
+            empty.append(lst[j][i])
+            if len(empty) == 3:
+                max_column = max(empty)
+                max_column_elems.append(max_column)
+                if min_row == max_column:
+                    saddle_points_list.append(max_column)
+                empty.clear()
+    for i in range(len(min_row_elems)):
+        for j in range(len(max_column_elems)):
+            if min_row_elems[i] == max_column_elems[j]:
+                saddle_points_list.append(min_row_elems[i])
+                print("Координаты:", find_index(lst,min_row_elems[i]))
+
+    return saddle_points_list
+
+
+def find_index(lst,number):
+    coordinates = []
+    for i in range(len(lst)):
+        for j in range(len(lst)):
+            if lst[i][j] == number:
+                index1 = i
+                index2 = lst[i].index(lst[i][j])
+                coordinate = ''.join(str(index1) +',' + str(index2))
+                coordinates.append(coordinate)
+                return coordinates
+
+
+
+
+print("Cедловые точки: ",find_saddle_points(lst))

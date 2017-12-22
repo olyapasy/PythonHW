@@ -191,10 +191,11 @@ def find_index(lst,number):
             if lst[i][j] == number:
                 index1 = i
                 index2 = lst[i].index(lst[i][j])
-                coordinate = ''.join(str(index1) +',' + str(index2))
+                coordinate = []
+                coordinate.append(index1)
+                coordinate.append(index2)
                 coordinates.append(coordinate)
                 return coordinates
-
 
 
 

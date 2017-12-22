@@ -11,7 +11,8 @@
 # 9. Нормировать одномерный список случайных чисел. Нормирование означает приведение всех значений массива к интервалу [-1;1], причем максимальное абсолютное значение элементов после нормирование должно быть равно 1. Например, последовательность [-5, 3, 4] после нормирование будет выглядеть [-1, 0.6, 0.8]
 #
 # 8 баллов
-# 10. Для заданной матрицы (3*3) найти все ее седловые точки и вернуть список их координат (список списков). Седловых точек может не быть, может быть 1 и более. Например, для матрицы ниже результат должен быть [[1, 0]]:
+# 10. Для заданной матрицы (3*3) найти все ее седловые точки и вернуть список их координат (список списков).
+# Седловых точек может не быть, может быть 1 и более. Например, для матрицы ниже результат должен быть [[1, 0]]:
 # 3  8  7
 # 5  9  6     <--- седловая точка (1,0)
 # 2  6  7
@@ -104,10 +105,7 @@ print("Task 7.")
 
 
 def sum_fibb_numbers(n):
-    result = 0
-    for i in range(n + 1):
-        result += fib(i)
-    return result
+    return sum([fib(i) for i in range(n + 1)])
 
 
 def fib(n):
@@ -132,9 +130,8 @@ def change_min_max(lst):
     max_elem = max(lst)
     min_elem_index = lst.index(min_elem)
     max_elem_index = lst.index(max_elem)
-    for i in range(len(lst)):
-        lst[min_elem_index] = max_elem
-        lst[max_elem_index] = min_elem
+    lst[min_elem_index] = max_elem
+    lst[max_elem_index] = min_elem
     return lst
 
 
@@ -143,7 +140,7 @@ print(change_min_max(some_list))
 
 print("Task 9.")
 
-lst = [-5,2,4]
+lst = [-5,4,3]
 
 def normalize(lst):
     lst = list(lst)
@@ -151,13 +148,15 @@ def normalize(lst):
     max_elem = max(lst)
     if mod_min_elem > max_elem:
         res = mod_min_elem
-    elif max_elem <mod_min_elem:
+    elif max_elem < mod_min_elem:
         res = max_elem
     else:
-        res = mod_min_elem
+        res = max(lst, key=abs)
     for i in range(len(lst)):
         lst[i] = lst[i] / res
     return lst
 
 
 print(normalize(lst))
+
+print("Task 10.")

@@ -4,10 +4,10 @@ class Godzilla:
         self.weight = weight
 
     def eat(self):
-        print('----------------------------------------------------------------------')
+        print('-----------------------------------------------------------------------')
         print('Space:                 %d' % self.space)
         print('Human weight:          %d' % self.weight)
-        print('----------------------------------------------------------------------')
+        print('-----------------------------------------------------------------------')
         percent = (self.weight * 100) / self.space
         if percent > 90:
             self.isFull(percent)

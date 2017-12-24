@@ -12,7 +12,7 @@ def gen_primes():
                     break
             else:
                 lst.append(i)
-    print(lst)
+    return lst
 
 
-gen_primes()
+print(gen_primes())

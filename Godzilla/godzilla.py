@@ -15,7 +15,7 @@ class Godzilla:
         if self.is_full():
                 print('I am full')
         else:
-                self.weight += int(input("Enter the value of weight of new human : "))
+                self.weight += self.weight
 
     def is_full(self):
         return (self.weight * self.FULL_STOMACH_PERCENT) / self.space >= self.BOUND_PERCENT
